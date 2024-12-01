@@ -40,7 +40,7 @@ pipeline {
         stage("Trivy: Filesystem scan"){
             steps{
                 script{
-                    trivy_scan()
+                    trivy_scan("fs", ".")
                 }
             }
         }
@@ -56,7 +56,7 @@ pipeline {
         stage("SonarQube: Code Analysis"){
             steps{
                 script{
-                    sonarqube_analysis("Sonar","wanderlust","wanderlust")
+                    sonarqube_analysis("SonarQube","wanderlust","wanderlust")
                 }
             }
         }
