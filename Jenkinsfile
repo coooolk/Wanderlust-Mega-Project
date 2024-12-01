@@ -124,7 +124,7 @@ pipeline {
             }
         }
     }
-    post{
+   /* post{
         success{
             archiveArtifacts artifacts: '*.xml', followSymlinks: false
             build job: "Wanderlust-CD", parameters: [
@@ -132,5 +132,5 @@ pipeline {
                 string(name: 'BACKEND_DOCKER_TAG', value: "${params.BACKEND_DOCKER_TAG}")
             ]
         }
-    }
+    }*/
 }
