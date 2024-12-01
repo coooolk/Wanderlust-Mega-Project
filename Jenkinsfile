@@ -29,13 +29,13 @@ pipeline {
             }
         }
         
-       /* stage('Git: Code Checkout') {
+       stage('Git: Code Checkout') {
             steps {
                 script{
                     git_clone("https://github.com/coooolk/Wanderlust-Mega-Project.git","main")
                 }
             }
-        } */
+        } 
         
         stage("Trivy: Filesystem scan"){
             steps{
