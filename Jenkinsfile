@@ -45,13 +45,13 @@ pipeline {
             }
         }
 
-        stage('Install npm Dependencies') {
+       /* stage('Install npm Dependencies') {
             steps {
                 script {
                     sh 'npm install'
                 }
             }
-       }
+       } */
 
         stage("OWASP: Dependency check"){
             steps{
