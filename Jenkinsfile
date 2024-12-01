@@ -7,8 +7,8 @@ pipeline {
     }
     
     parameters {
-        string(name: 'FRONTEND_DOCKER_TAG', defaultValue: '', description: 'Setting docker image for latest push')
-        string(name: 'BACKEND_DOCKER_TAG', defaultValue: '', description: 'Setting docker image for latest push')
+        string(name: 'FRONTEND_DOCKER_TAG', defaultValue: '1.1', description: 'Setting docker image for latest push')
+        string(name: 'BACKEND_DOCKER_TAG', defaultValue: '1.1', description: 'Setting docker image for latest push')
     }
     
     stages {
@@ -29,13 +29,13 @@ pipeline {
             }
         }
         
-        stage('Git: Code Checkout') {
+       /* stage('Git: Code Checkout') {
             steps {
                 script{
                     git_clone("https://github.com/coooolk/Wanderlust-Mega-Project.git","main")
                 }
             }
-        }
+        } */
         
         stage("Trivy: Filesystem scan"){
             steps{
