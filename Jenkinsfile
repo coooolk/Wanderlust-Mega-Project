@@ -77,7 +77,7 @@ pipeline {
             }
         }
         
-        stage('Exporting environment variables') {
+       /* stage('Exporting environment variables') {
             parallel{
                 stage("Backend env setup"){
                     steps {
@@ -99,7 +99,7 @@ pipeline {
                     }
                 }
             }
-        }
+        } */
         
         stage("Docker: Build Images"){
             steps{
