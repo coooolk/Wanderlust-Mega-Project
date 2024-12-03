@@ -19,7 +19,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script{
-                    git_clone("https://github.com/coooolk/Wanderlust-Mega-Project.git","main")
+                    git_clone("https://github.com/coooolk/kubernetes-manifests.git","master")
                 }
             }
         }
@@ -37,13 +37,13 @@ pipeline {
         stage("Update: Kubernetes manifests"){
             steps{
                 script{
-                    dir('kubernetes'){
+                    dir('wanderlust'){
                         sh """
                             sed -i -e s/wanderlust-backend-beta.*/wanderlust-backend-beta:${params.BACKEND_DOCKER_TAG}/g backend.yaml
                         """
                     }
                     
-                    dir('kubernetes'){
+                    dir('wanderlust'){
                         sh """
                             sed -i -e s/wanderlust-frontend-beta.*/wanderlust-frontend-beta:${params.FRONTEND_DOCKER_TAG}/g frontend.yaml
                         """
@@ -68,7 +68,7 @@ pipeline {
                         git commit -m "Updated environment variables"
                         
                         echo "Pushing changes to github: "
-                        git push https://github.com/coooolk/Wanderlust-Mega-Project.git main
+                        git push https://github.com/coooolk/kubernetes-manifests.git master
                     '''
                     }
                 }
